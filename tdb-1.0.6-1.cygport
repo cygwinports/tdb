@@ -1,0 +1,9 @@
+DESCRIPTION="Trivial Database library"
+HOMEPAGE="http://sourceforge.net/projects/tdb/"
+SRC_URI=mirror://sourceforge/${PN}/${P}.tar.gz
+
+PKG_NAMES="${PN} lib${PN}1 lib${PN}-devel"
+PKG_HINTS='setup lib devel'
+PKG_CONTENTS[0]='usr/bin/*.exe usr/share/doc/'
+PKG_CONTENTS[1]='usr/bin/*.dll'
+PKG_CONTENTS[2]='usr/include/ usr/lib/ usr/share/man/man3/'

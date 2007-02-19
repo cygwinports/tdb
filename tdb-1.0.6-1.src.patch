@@ -1,0 +1,54 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/tdb-1.0.6/Makefile.am src/tdb-1.0.6/Makefile.am
+--- origsrc/tdb-1.0.6/Makefile.am	2001-12-10 22:05:13.000000000 -0600
++++ src/tdb-1.0.6/Makefile.am	2007-02-19 08:35:08.631483800 -0600
+@@ -20,7 +20,7 @@
+ 
+ include_HEADERS=tdb.h
+ libtdb_la_SOURCES=tdb.c spinlock.c spinlock.h
+-libtdb_la_LDFLAGS= -version-info 1:0:0
++libtdb_la_LDFLAGS= -version-info 1:0:0 -no-undefined
+ 
+ tdbtest_SOURCES=tdbtest.c
+ tdbspeed_SOURCES=tdbspeed.c
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/tdb-1.0.6/tdbtool.c src/tdb-1.0.6/tdbtool.c
+--- origsrc/tdb-1.0.6/tdbtool.c	2001-12-10 21:45:47.000000000 -0600
++++ src/tdb-1.0.6/tdbtool.c	2007-02-19 08:46:18.756497300 -0600
+@@ -169,22 +169,22 @@
+ 
+ static void help(void)
+ {
+-	printf("
+-tdbtool: 
+-  create    dbname     : create a database
+-  open      dbname     : open an existing database
+-  erase                : erase the database
+-  dump      dumpname   : dump the database as strings
+-  insert    key  data  : insert a record
+-  store     key  data  : store a record (replace)
+-  show      key        : show a record by key
+-  delete    key        : delete a record by key
+-  list                 : print the database hash table and freelist
+-  free                 : print the database freelist
+-  1 | first            : print the first record
+-  n | next             : print the next record
+-  q | quit             : terminate
+-  \\n                   : repeat 'next' command
++	printf("\n\
++tdbtool: \n\
++  create    dbname     : create a database \n\
++  open      dbname     : open an existing database \n\
++  erase                : erase the database \n\
++  dump      dumpname   : dump the database as strings \n\
++  insert    key  data  : insert a record \n\
++  store     key  data  : store a record (replace) \n\
++  show      key        : show a record by key \n\
++  delete    key        : delete a record by key \n\
++  list                 : print the database hash table and freelist \n\
++  free                 : print the database freelist \n\
++  1 | first            : print the first record \n\
++  n | next             : print the next record \n\
++  q | quit             : terminate \n\
++  \\n                   : repeat 'next' command \n\
+ ");
+ }
+ 
