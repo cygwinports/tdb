@@ -1,4 +1,3 @@
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/tdb-1.0.6/Makefile.am src/tdb-1.0.6/Makefile.am
 --- origsrc/tdb-1.0.6/Makefile.am	2001-12-10 22:05:13.000000000 -0600
 +++ src/tdb-1.0.6/Makefile.am	2007-02-19 08:35:08.631483800 -0600
 @@ -20,7 +20,7 @@
@@ -10,7 +9,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depco
  
  tdbtest_SOURCES=tdbtest.c
  tdbspeed_SOURCES=tdbspeed.c
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/tdb-1.0.6/tdbtool.c src/tdb-1.0.6/tdbtool.c
 --- origsrc/tdb-1.0.6/tdbtool.c	2001-12-10 21:45:47.000000000 -0600
 +++ src/tdb-1.0.6/tdbtool.c	2007-02-19 08:46:18.756497300 -0600
 @@ -169,22 +169,22 @@
