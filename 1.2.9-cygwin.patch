@@ -1,0 +1,29 @@
+--- origsrc/tdb-1.2.9/buildtools/wafsamba/samba_conftests.py	2010-12-15 04:46:16.000000000 -0600
++++ src/tdb-1.2.9/buildtools/wafsamba/samba_conftests.py	2011-12-12 01:30:34.239867900 -0600
+@@ -247,7 +247,10 @@ def CHECK_LIBRARY_SUPPORT(conf, rpath=Fa
+     # path for execution
+     lastprog = o.link_task.outputs[0].abspath(env)
+ 
+-    if not rpath:
++    if sys.platform == 'cygwin':
++        os.putenv('PATH', os.path.join(bdir, 'default/libdir') + ':' + os.environ['PATH'])
++        old_ld_library_path = None
++    elif not rpath:
+         if 'LD_LIBRARY_PATH' in os.environ:
+             old_ld_library_path = os.environ['LD_LIBRARY_PATH']
+         else:
+--- origsrc/tdb-1.2.9/buildtools/wafsamba/samba_install.py	2010-12-20 19:00:02.000000000 -0600
++++ src/tdb-1.2.9/buildtools/wafsamba/samba_install.py	2011-12-12 04:54:36.377078100 -0600
+@@ -159,6 +159,12 @@ def apply_vscript(self):
+             self.version_script)
+         self.version_script = None
+ 
++@feature('cshlib')
++def apply_implib(self):
++    if self.env.DEST_BINFMT == 'pe':
++        self.env.append_value('LINKFLAGS', "-Wl,--out-implib,default/lib%s.dll.a" %
++            os.path.split(self.target)[1])
++
+ 
+ ##############################
+ # handle the creation of links for libraries and binaries in the build tree

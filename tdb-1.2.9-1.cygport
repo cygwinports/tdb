@@ -1,0 +1,33 @@
+inherit python
+
+DESCRIPTION="Trivial database library from the Samba project"
+HOMEPAGE="http://tdb.samba.org/"
+SRC_URI="http://www.samba.org/ftp/${PN}/${P}.tar.gz"
+PATCH_URI="1.2.9-cygwin.patch"
+
+PKG_NAMES="tdb libtdb1 libtdb-devel python-tdb"
+tdb_CONTENTS="usr/bin/tdb* usr/share/"
+libtdb1_CONTENTS="usr/bin/cygtdb-1.dll"
+libtdb_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+python_tdb_CONTENTS=${PYTHON_SITELIB#/}
+
+src_compile() {
+	lndirs
+	cd ${B}
+	CYGCONF_SOURCE=. \
+	cygconf --disable-symbol-versions
+	cygmake
+}
+
+src_install() {
+	cd ${B}/bin/default
+	# tdbtorture is a test program not meant to be installed
+	dobin cygtdb-1.dll tdb{backup,dump,restore,tool}.exe
+	dolib libtdb.dll.a
+	doman manpages/*.8
+	doinclude ${B}/include/*.h
+	dopkgconfig tdb.pc
+	dopython python/tdb.dll
+}
+
+DOCS="docs/README"
