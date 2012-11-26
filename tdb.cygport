@@ -1,14 +1,27 @@
 inherit python
 
-DESCRIPTION="Trivial database library from the Samba project"
+NAME="tdb"
+VERSION=1.2.10
+RELEASE=1
+CATEGORY="Database"
+SUMMARY="Trivial Database"
+DESCRIPTION="TDB is a Trivial Database. In concept, it is very much like GDBM,
+and BSD's DB except that it allows multiple simultaneous writers and uses
+locking internally to keep writers from trampling on each other. TDB is also
+extremely small."
 HOMEPAGE="http://tdb.samba.org/"
 SRC_URI="http://www.samba.org/ftp/${PN}/${P}.tar.gz"
 PATCH_URI="1.2.9-cygwin.patch"
 
 PKG_NAMES="tdb libtdb1 libtdb-devel python-tdb"
+tdb_SUMMARY="${SUMMARY} utilities"
 tdb_CONTENTS="usr/bin/tdb* usr/share/"
+libtdb1_SUMMARY="${SUMMARY} library (runtime)"
 libtdb1_CONTENTS="usr/bin/cygtdb-1.dll"
+libtdb_devel_SUMMARY="${SUMMARY} library (development)"
 libtdb_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+python_tdb_CATEGORY="Python"
+python_tdb_SUMMARY="${SUMMARY} library (Python bindings)"
 python_tdb_CONTENTS=${PYTHON_SITELIB#/}
 
 src_compile() {
