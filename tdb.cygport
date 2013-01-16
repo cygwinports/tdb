@@ -2,7 +2,7 @@ inherit python
 
 NAME="tdb"
 VERSION=1.2.11
-RELEASE=1
+RELEASE=2
 CATEGORY="Database"
 SUMMARY="Trivial Database"
 DESCRIPTION="TDB is a Trivial Database. In concept, it is very much like GDBM,
