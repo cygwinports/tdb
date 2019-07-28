@@ -21,7 +21,7 @@
 +@feature('cshlib')
 +def apply_implib(self):
 +    if self.env.DEST_BINFMT == 'pe':
-+        self.env.append_value('LINKFLAGS', "-Wl,--out-implib,default/lib%s.dll.a" %
++        self.env.append_value('LINKFLAGS', "-Wl,--out-implib,lib%s.dll.a" %
 +            os.path.split(self.target)[1])
 +
  
